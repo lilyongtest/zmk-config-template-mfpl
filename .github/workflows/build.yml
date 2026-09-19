@@ -27,11 +27,15 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - name: West Init
-        uses: zmkfirmware/zmk-action-setup@v1
-
-      - name: Build ZMK
-        uses: zmkfirmware/zmk-action-build-single@v5
+      - name: Build ZMK Firmware
+        uses: zmkfirmware/zmk-action-build-arm@v1
         with:
+          keymap: config/butterfly_air.keymap
           board: nice_nano_v2
           shield: butterfly_air
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware
+          path: '*.uf2'
