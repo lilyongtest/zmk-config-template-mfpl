@@ -5,10 +5,11 @@ name: Build
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build Test
+    name: Build Firmware
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Cache west modules
         uses: actions/cache@v4
         env:
@@ -25,39 +26,12 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+
       - name: West Init
-        uses: docker://zmkfirmware/zephyr-west-action-arm:latest
-        id: west-init
+        uses: zmkfirmware/zmk-action-setup@v1
+
+      - name: Build ZMK
+        uses: zmkfirmware/zmk-action-build-single@v1
         with:
-          args: 'init "-l config"'
-      - name: West Update
-        uses: docker://zmkfirmware/zephyr-west-action-arm:latest
-        id: west-update
-        with:
-          args: 'update'
-      - name: West Config Zephyr Base
-        uses: docker://zmkfirmware/zephyr-west-action-arm:latest
-        id: west-config
-        with:
-          args: 'config --global zephyr.base-working-directory zmk/zephyr'
-      - name: West Zephyr Export
-        uses: docker://zmkfirmware/zephyr-west-action-arm:latest
-        id: west-zephyr-export
-        with:
-          args: 'zephyr-export'
-      - name: West Build (butterfly_air)
-        uses: docker://zmkfirmware/zephyr-west-action-arm:latest
-        id: west-build
-        with:
-          args: 'build -s zmk/app -b nice_nano_v2 -- -DSHIELD=butterfly_air -DZMK_CONFIG="${GITHUB_WORKSPACE}"'
-      - name: Butterfly Air UF2 File
-        if: ${{ always() }}
-        run: |
-          if [ -f build/zephyr/zmk.uf2 ]; then
-            cp build/zephyr/zmk.uf2 butterfly_air_nice_nano_v2.uf2
-          fi
-      - name: Archive artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: firmware
-          path: '*.uf2'
+          board: nice_nano_v2
+          shield: butterfly_air
