@@ -1,0 +1,53 @@
+/*
+ * Copyright (c) 2023 The ZMK Contributors
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        /* Layer 0: デフォルトレイヤー */
+        default_layer {
+            bindings = <
+&kp ESC   &kp Q    &kp W    &kp E   &kp R     &kp T   &kp Y   &kp U   &kp I     &kp O     &kp P     &kp MINUS &kp BSPC
+&kp TAB   &kp A    &kp S    &kp D   &kp F     &kp G   &kp H   &kp J   &kp K     &kp L     &kp SEMI  &kp RET   &kp RET
+&kp LSHFT &kp Z    &kp X    &kp C   &kp V     &kp B   &kp B   &kp N   &kp M     &kp COMMA &kp DOT   &kp UP    &kp DEL
+&kp LCTRL &kp LGUI &kp LALT &mo 1   &kp SPACE &mo 2   &mo 1   &mo 2   &mo 3     &mo 1     &kp LEFT  &kp DOWN  &kp RIGHT
+            >;
+        };
+
+        /* Layer 1: テンキー・記号 */
+        layer_1 {
+            bindings = <
+&trans &trans &trans &trans &trans &trans &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_SLASH    &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_ASTERISK &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_MINUS    &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &kp LNUM  &kp KP_N0 &kp KP_DOT &kp KP_PLUS    &trans &trans &trans
+            >;
+        };
+
+        /* Layer 2 */
+        layer_2 {
+            bindings = <
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+            >;
+        };
+
+        /* Layer 3 */
+        layer_3 {
+            bindings = <
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+            >;
+        };
+    };
+};
