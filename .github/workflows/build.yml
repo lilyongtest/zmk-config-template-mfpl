@@ -1,11 +1,12 @@
-name: Build
+name: Build Firmware
 
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build Firmware
+    container:
+      image: zmkfirmware/zmk-build-arm:stable
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,15 +28,27 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - name: Build ZMK Firmware
-        uses: zmkfirmware/zmk-action-build-arm@v1
-        with:
-          keymap: config/butterfly_air.keymap
-          board: nice_nano_v2
-          shield: butterfly_air
+      - name: Initialize West Workspace
+        run: |
+          if [ ! -d .west ]; then
+            west init -l config
+          fi
+          west update
+          west zephyr-export
 
-      - name: Archive artifacts
+      - name: Build Butterfly Air Firmware
+        run: |
+          west build -s zmk/app -b nice_nano_v2 -- -DSHIELD=butterfly_air -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+
+      - name: Prepare UF2 Artifact
+        if: ${{ always() }}
+        run: |
+          if [ -f build/zephyr/zmk.uf2 ]; then
+            cp build/zephyr/zmk.uf2 butterfly_air_nice_nano_v2.uf2
+          fi
+
+      - name: Upload Firmware
         uses: actions/upload-artifact@v4
         with:
-          name: firmware
+          name: butterfly_air_firmware
           path: '*.uf2'
