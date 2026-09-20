@@ -1,3 +1,5 @@
+# build.yaml
+
 include:
-  - board: nice_nano/nrf52840/zmk
+  - board: nice_nano//zmk
     shield: butterfly_air
