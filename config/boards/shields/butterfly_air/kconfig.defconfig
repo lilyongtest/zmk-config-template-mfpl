@@ -1,6 +1,6 @@
 if SHIELD_BUTTERFLY_AIR
 
 config ZMK_KEYBOARD_NAME
-    default "butterfly-air"
+    default "Butterfly Air"
 
 endif
