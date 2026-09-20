@@ -1,77 +1,174 @@
 /*
  * Butterfly Air - 48 key keymap
  *
- * Logical layout is 4 rows x 12 columns.
+ * Logical layout:
+ *   4 rows x 12 columns = 48 positions
+ *
+ * Layer 0: Base Layer
+ * Layer 1: Function & Symbol Layer
+ * Layer 2: Bluetooth / Symbol Layer
+ * Layer 3: Numpad Layer
+ *
+ * Physical blind-cap positions:
+ *   Row 4 / Column 4 -> &trans
+ *   Row 4 / Column 9 -> &trans
+ *
+ * These positions are physically wired but intentionally unused.
+ *
+ * Bluetooth:
+ *   Layer 2 provides five Bluetooth profile selection keys.
+ *   Profile 0-4 can be used for up to five paired hosts.
  */
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
 / {
     keymap {
         compatible = "zmk,keymap";
 
+        /*
+         * ============================================================
+         * Layer 0 - Base Layer
+         * ============================================================
+         *
+         *   ESC   Q     W     E     R     T       Y     U     I     O     P     BS
+         *   TAB   A     S     D     F     G       H     J     K     L     ;     ENT
+         *   SHFT  Z     X     C     V     B       N     M     ,     .     UP    DEL
+         *   CTRL  GUI   ALT   TRANS  MO3   SPC     MO1   MO2   TRANS LEFT  DOWN  RIGHT
+         *
+         * Row 4 / Column 4 and Column 9 are physically wired but
+         * intentionally unused (blind caps).
+         */
         default_layer {
+            display-name = "Base";
+
             bindings = <
-                &kp ESC    &kp Q      &kp W      &kp E      &kp R      &kp T
-                &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC
+                &kp ESC      &kp Q        &kp W        &kp E        &kp R        &kp T
+                &kp Y        &kp U        &kp I        &kp O        &kp P        &kp BSPC
 
-                &kp TAB    &kp A      &kp S      &kp D      &kp F      &kp G
-                &kp H      &kp J      &kp K      &kp L      &kp SEMI   &kp RET
+                &kp TAB      &kp A        &kp S        &kp D        &kp F        &kp G
+                &kp H        &kp J        &kp K        &kp L        &kp SEMI     &kp RET
 
-                &kp LSHFT  &kp Z      &kp X      &kp C      &kp V      &kp B
-                &kp N      &kp M      &kp COMMA  &kp DOT    &kp UP      &kp DEL
+                &kp LSHFT    &kp Z        &kp X        &kp C        &kp V        &kp B
+                &kp N        &kp M        &kp COMMA    &kp DOT      &kp UP       &kp DEL
 
-                &kp LCTRL  &kp LGUI   &kp LALT   &mo 1      &kp SPACE   &mo 2
-                &mo 1      &mo 2      &mo 3      &mo 1      &kp LEFT    &kp RIGHT
+                &kp LCTRL    &kp LGUI     &kp LALT     &trans       &mo 3        &kp SPACE
+                &mo 1        &mo 2        &trans       &kp LEFT     &kp DOWN     &kp RIGHT
             >;
         };
 
+        /*
+         * ============================================================
+         * Layer 1 - Function & Symbol Layer
+         * ============================================================
+         *
+         * Activated by holding MO1.
+         *
+         *   F2    F4    TRANS TRANS TRANS TRANS    TRANS TRANS TRANS TRANS TRANS =
+         *   !     @     TRANS TRANS TRANS TRANS    TRANS TRANS TRANS TRANS TRANS TRANS
+         *   TRANS TRANS TRANS TRANS TRANS TRANS    -     ?     /     TRANS TRANS TRANS
+         *   TRANS TRANS TRANS TRANS TRANS          TRANS TRANS TRANS TRANS TRANS
+         *
+         * Unspecified positions are &trans.
+         */
         layer_1 {
+            display-name = "Function & Symbol";
+
             bindings = <
-                &trans &trans &trans &trans &trans &trans
-                &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_SLASH &trans &trans
+                &kp F2       &kp F4       &trans       &trans       &trans       &trans
+                &trans       &trans       &trans       &trans       &trans       &kp EQUAL
 
-                &trans &trans &trans &trans &trans &trans
-                &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_ASTERISK &trans &trans
+                &kp EXCL     &kp AT        &trans       &trans       &trans       &trans
+                &trans       &trans       &trans       &trans       &trans       &trans
 
-                &trans &trans &trans &trans &trans &trans
-                &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_MINUS &trans &trans
+                &trans       &trans       &trans       &trans       &trans       &trans
+                &kp MINUS    &kp QMARK    &kp SLASH    &trans       &trans       &trans
 
-                &trans &trans &trans &kp KP_NUMLOCK &kp KP_N0 &kp KP_DOT
-                &kp KP_PLUS &trans &trans &trans &trans &trans
+                &trans       &trans       &trans       &trans       &trans       &trans
+                &trans       &trans       &trans       &trans       &trans       &trans
             >;
         };
 
+        /*
+         * ============================================================
+         * Layer 2 - Bluetooth / Symbol Layer
+         * ============================================================
+         *
+         * Activated by holding MO2.
+         *
+         * Right-hand upper area:
+         *
+         *   BT0   BT1   BT2   BT3   BT4   NEXT
+         *
+         * Right-hand second row:
+         *
+         *   PREV  CLR   CLRALL BLE   USB   TOGGLE
+         *
+         * Lower-right:
+         *
+         *   TRANS TRANS TRANS >     TRANS TRANS
+         *
+         * Bluetooth profiles:
+         *   BT_SEL 0 = Profile 0
+         *   BT_SEL 1 = Profile 1
+         *   BT_SEL 2 = Profile 2
+         *   BT_SEL 3 = Profile 3
+         *   BT_SEL 4 = Profile 4
+         *
+         * Example:
+         *   Profile 0 = Smartphone
+         *   Profile 1 = PC
+         *   Profile 2 = Tablet
+         *   Profile 3 = Spare
+         *   Profile 4 = Spare
+         */
         layer_2 {
+            display-name = "Bluetooth";
+
             bindings = <
-                &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans
+                &trans       &trans       &trans       &trans       &trans       &trans
+                &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_NXT
 
-                &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans
+                &trans       &trans       &trans       &trans       &trans       &trans
+                &bt BT_PRV   &bt BT_CLR   &bt BT_CLR_ALL &out OUT_BLE  &out OUT_USB  &out OUT_TOG
 
-                &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans
+                &trans       &trans       &trans       &trans       &trans       &trans
+                &trans       &trans       &trans       &kp GREATER  &trans       &trans
 
-                &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans
+                &trans       &trans       &trans       &trans       &trans       &trans
+                &trans       &trans       &trans       &trans       &trans       &trans
             >;
         };
 
+        /*
+         * ============================================================
+         * Layer 3 - Numpad Layer
+         * ============================================================
+         *
+         * Activated by holding MO3.
+         *
+         *   TRANS TRANS 7  8  9 TRANS
+         *   TRANS TRANS 4  5  6 TRANS
+         *   TRANS TRANS 1  2  3 TRANS
+         *   TRANS TRANS TRANS TRANS 0 TRANS
+         *
+         * All other positions are &trans.
+         */
         layer_3 {
+            display-name = "Numpad";
+
             bindings = <
-                &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans
+                &trans       &trans       &kp KP_N7    &kp KP_N8    &kp KP_N9    &trans
+                &trans       &trans       &kp KP_N4    &kp KP_N5    &kp KP_N6    &trans
 
-                &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans
+                &trans       &trans       &kp KP_N1    &kp KP_N2    &kp KP_N3    &trans
+                &trans       &trans       &trans       &trans       &kp KP_N0    &trans
 
-                &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans
-
-                &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans
+                &trans       &trans       &trans       &trans       &trans       &trans
+                &trans       &trans       &trans       &trans       &trans       &trans
             >;
         };
     };
