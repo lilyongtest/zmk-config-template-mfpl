@@ -11,9 +11,9 @@
  *   COL0 = D4
  *   COL1 = D5
  *   COL2 = D6
- *   COL3 = D18
+ *   COL3 = D14
  *   COL4 = D15
- *   COL5 = D14
+ *   COL5 = D18
  *
  * Each physical ROW/COL intersection has two diodes:
  *   ROW -> COL
@@ -41,19 +41,31 @@
          *   0..3 = ROW0..ROW3
          *   4..9 = COL0..COL5
          *
+         * Physical GPIO assignment:
+         *   ROW0 = D2
+         *   ROW1 = D3
+         *   ROW2 = D10
+         *   ROW3 = D16
+         *   COL0 = D4
+         *   COL1 = D5
+         *   COL2 = D6
+         *   COL3 = D14
+         *   COL4 = D15
+         *   COL5 = D18
+         *
          * All GPIOs must use GPIO_ACTIVE_HIGH for this driver.
          */
         gpios
-            = <&pro_micro 2  GPIO_ACTIVE_HIGH>  /* 0: ROW0 */
-            , <&pro_micro 3  GPIO_ACTIVE_HIGH>  /* 1: ROW1 */
-            , <&pro_micro 10 GPIO_ACTIVE_HIGH>  /* 2: ROW2 */
-            , <&pro_micro 16 GPIO_ACTIVE_HIGH>  /* 3: ROW3 */
-            , <&pro_micro 4  GPIO_ACTIVE_HIGH>  /* 4: COL0 */
-            , <&pro_micro 5  GPIO_ACTIVE_HIGH>  /* 5: COL1 */
-            , <&pro_micro 6  GPIO_ACTIVE_HIGH>  /* 6: COL2 */
-            , <&pro_micro 18 GPIO_ACTIVE_HIGH>  /* 7: COL3 */
-            , <&pro_micro 15 GPIO_ACTIVE_HIGH>  /* 8: COL4 */
-            , <&pro_micro 14 GPIO_ACTIVE_HIGH>  /* 9: COL5 */
+            = <&pro_micro 2  GPIO_ACTIVE_HIGH>  /* 0: ROW0 = D2 */
+            , <&pro_micro 3  GPIO_ACTIVE_HIGH>  /* 1: ROW1 = D3 */
+            , <&pro_micro 10 GPIO_ACTIVE_HIGH>  /* 2: ROW2 = D10 */
+            , <&pro_micro 16 GPIO_ACTIVE_HIGH>  /* 3: ROW3 = D16 */
+            , <&pro_micro 4  GPIO_ACTIVE_HIGH>  /* 4: COL0 = D4 */
+            , <&pro_micro 5  GPIO_ACTIVE_HIGH>  /* 5: COL1 = D5 */
+            , <&pro_micro 6  GPIO_ACTIVE_HIGH>  /* 6: COL2 = D6 */
+            , <&pro_micro 14 GPIO_ACTIVE_HIGH>  /* 7: COL3 = D14 */
+            , <&pro_micro 15 GPIO_ACTIVE_HIGH>  /* 8: COL4 = D15 */
+            , <&pro_micro 18 GPIO_ACTIVE_HIGH>  /* 9: COL5 = D18 */
             ;
 
         debounce-press-ms = <5>;
@@ -78,12 +90,12 @@
     /*
      * Logical matrix: 4 rows x 12 columns = 48 positions.
      *
-     * Each physical intersection contributes two logical positions:
+     * Each physical ROW/COL intersection contributes two logical positions:
      *
      *   RC(row, col) = ROW -> COL
      *   RC(col, row) = COL -> ROW
      *
-     * Example for ROW0/COL0 (GPIO 0 / GPIO 4):
+     * Example for ROW0/COL0 (GPIO index 0 / GPIO index 4):
      *   RC(0,4) = diode direction ROW0 -> COL0
      *   RC(4,0) = diode direction COL0 -> ROW0
      */
