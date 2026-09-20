@@ -16,6 +16,10 @@
  * These positions are physically wired but intentionally unused.
  */
 
+/*
+ * Butterfly Air - 48 key keymap (Safe Build Version)
+ */
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
@@ -25,11 +29,6 @@
     keymap {
         compatible = "zmk,keymap";
 
-        /*
-         * ============================================================
-         * Layer 0 - Base Layer
-         * ============================================================
-         */
         default_layer {
             display-name = "Base";
             bindings = <
@@ -47,13 +46,8 @@
             >;
         };
 
-        /*
-         * ============================================================
-         * Layer 1 - Function & Symbol Layer
-         * ============================================================
-         */
         layer_1 {
-            display-name = "Func&Sym";
+            display-name = "FuncSym";
             bindings = <
                 &kp F2       &kp F4       &trans       &trans       &trans       &trans
                 &trans       &trans       &trans       &trans       &trans       &kp EQUAL
@@ -69,44 +63,23 @@
             >;
         };
 
-        /*
-         * ============================================================
-         * Layer 2 - Bluetooth / Symbol Layer
-         * ============================================================
-         *
-         * Right-hand upper area:
-         *   BT0   BT1   BT2   BT3   BT4   NEXT
-         *
-         * Right-hand second row:
-         *   PREV  CLR   CLRALL BLE   USB   TOGGLE
-         *
-         * Lower-right:
-         *   TRANS TRANS TRANS >     TRANS TRANS
-         */
         layer_2 {
-            display-name = "BT&Sym";
+            display-name = "BTSym";
             bindings = <
                 &trans       &trans       &trans       &trans       &trans       &trans
                 &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_NXT
 
                 &trans       &trans       &trans       &trans       &trans       &trans
-                &bt BT_PRV   &bt BT_CLR   &bt BT_CLR_ALL &out OUT_BLE &out OUT_USB &out OUT_TOG
+                &bt BT_PRV   &bt BT_CLR   &trans       &out OUT_BLE &out OUT_USB &out OUT_TOG
 
                 &trans       &trans       &trans       &trans       &trans       &trans
-                &trans       &trans       &trans       &kp GREATER  &trans       &trans
+                &trans       &trans       &trans       &kp LS(DOT)  &trans       &trans
 
                 &trans       &trans       &trans       &trans       &trans       &trans
                 &trans       &trans       &trans       &trans       &trans       &trans
             >;
         };
 
-        /*
-         * ============================================================
-         * Layer 3 - Numpad Layer
-         * ============================================================
-         *
-         * Left-hand Numpad Area
-         */
         layer_3 {
             display-name = "Numpad";
             bindings = <
