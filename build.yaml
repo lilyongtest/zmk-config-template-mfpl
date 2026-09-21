@@ -1,4 +1,4 @@
 # build.yaml (半角スペースのみで入力)
 include:
   - board: nice_nano//zmk
-
+  　shield: butterfly_air
