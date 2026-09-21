@@ -42,7 +42,7 @@
                 &kp N        &kp M        &kp COMMA    &kp DOT      &kp UP       &kp DEL
 
                 &kp LCTRL    &kp LGUI     &kp LALT     &trans       &mo 3        &kp SPACE
-                &mo 1        &mo 2        &trans       &kp LEFT     &kp DOWN     &kp RIGHT
+                &mo 1        &mo 2        &studio_unlock       &kp LEFT     &kp DOWN     &kp RIGHT
             >;
         };
 
