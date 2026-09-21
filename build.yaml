@@ -1,6 +1,5 @@
 include:
   - board: nice_nano//zmk
     shield: butterfly_air
-
-  - board: nice_nano//zmk
-    shield: settings_reset
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
