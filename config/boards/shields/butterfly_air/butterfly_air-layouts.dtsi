@@ -1,0 +1,74 @@
+/*
+ * Butterfly Air physical layout for ZMK Studio.
+ * Coordinates converted from the supplied KLE raw data.
+ *
+ * IMPORTANT: The keys are listed in logical keymap order (4 x 12),
+ * not in the order in which they appeared in the KLE source.
+ */
+#include <physical_layouts.dtsi>
+
+/ {
+    physical_layout0: physical_layout_0 {
+        compatible = "zmk,physical-layout";
+        display-name = "Butterfly Air";
+
+        /*                         w   h     x    y   rot  rx  ry */
+        keys
+            /* Row 0 */
+            = <&key_physical_attrs 100 100   25  175    0   0   0>  /* 0,0  ESC  */
+            , <&key_physical_attrs 100 100  125  160    0   0   0>  /* 0,1  Q    */
+            , <&key_physical_attrs 100 100  225  145    0   0   0>  /* 0,2  W    */
+            , <&key_physical_attrs 100 100  325  145    0   0   0>  /* 0,3  E    */
+            , <&key_physical_attrs 100 100  425  160    0   0   0>  /* 0,4  R    */
+            , <&key_physical_attrs 100 100  525  175    0   0   0>  /* 0,5  T    */
+            , <&key_physical_attrs 100 100  900   75    0   0   0>  /* 0,6  Y    */
+            , <&key_physical_attrs 100 100 1000   60    0   0   0>  /* 0,7  U    */
+            , <&key_physical_attrs 100 100 1100   45    0   0   0>  /* 0,8  I    */
+            , <&key_physical_attrs 100 100 1200   45    0   0   0>  /* 0,9  O    */
+            , <&key_physical_attrs 100 100 1300   60    0   0   0>  /* 0,10 P    */
+            , <&key_physical_attrs 100 100 1400   75    0   0   0>  /* 0,11 BSPC */
+
+            /* Row 1 */
+            , <&key_physical_attrs 100 100   25  275    0   0   0>  /* 1,0  TAB   */
+            , <&key_physical_attrs 100 100  125  260    0   0   0>  /* 1,1  A     */
+            , <&key_physical_attrs 100 100  225  245    0   0   0>  /* 1,2  S     */
+            , <&key_physical_attrs 100 100  325  245    0   0   0>  /* 1,3  D     */
+            , <&key_physical_attrs 100 100  425  260    0   0   0>  /* 1,4  F     */
+            , <&key_physical_attrs 100 100  525  275    0   0   0>  /* 1,5  G     */
+            , <&key_physical_attrs 100 100  900  175    0   0   0>  /* 1,6  H     */
+            , <&key_physical_attrs 100 100 1000  160    0   0   0>  /* 1,7  J     */
+            , <&key_physical_attrs 100 100 1100  145    0   0   0>  /* 1,8  K     */
+            , <&key_physical_attrs 100 100 1200  145    0   0   0>  /* 1,9  L     */
+            , <&key_physical_attrs 100 100 1300  160    0   0   0>  /* 1,10 ;     */
+            , <&key_physical_attrs 100 100 1400  175    0   0   0>  /* 1,11 ENTER */
+
+            /* Row 2 */
+            , <&key_physical_attrs 100 100   10  375    0   0   0>  /* 2,0  SHIFT */
+            , <&key_physical_attrs 100 100  110  375    0   0   0>  /* 2,1  Z     */
+            , <&key_physical_attrs 100 100  210  360    0   0   0>  /* 2,2  X     */
+            , <&key_physical_attrs 100 100  310  345    0   0   0>  /* 2,3  C     */
+            , <&key_physical_attrs 100 100  410  360    0   0   0>  /* 2,4  V     */
+            , <&key_physical_attrs 100 100  510  375    0   0   0>  /* 2,5  B     */
+            , <&key_physical_attrs 100 100  915  275    0   0   0>  /* 2,6  N     */
+            , <&key_physical_attrs 100 100 1015  260    0   0   0>  /* 2,7  M     */
+            , <&key_physical_attrs 100 100 1115  245    0   0   0>  /* 2,8  COMMA */
+            , <&key_physical_attrs 100 100 1215  260    0   0   0>  /* 2,9  DOT   */
+            , <&key_physical_attrs 100 100 1315  275    0   0   0>  /* 2,10 UP    */
+            , <&key_physical_attrs 100 100 1415  275    0   0   0>  /* 2,11 DEL   */
+
+            /* Row 3 */
+            , <&key_physical_attrs 100 100   10  475    0   0   0>  /* 3,0  CTRL  */
+            , <&key_physical_attrs 100 100  110  475    0   0   0>  /* 3,1  GUI   */
+            , <&key_physical_attrs 100 100  205  475    0   0   0>  /* 3,2  ALT   */
+            , <&key_physical_attrs 100 100  315  475    0   0   0>  /* 3,3  blind */
+            , <&key_physical_attrs 100 100  425  475    0   0   0>  /* 3,4  MO3   */
+            , <&key_physical_attrs 100 100  525  475    0   0   0>  /* 3,5  SPACE */
+            , <&key_physical_attrs 100 100  900  375    0   0   0>  /* 3,6  MO1   */
+            , <&key_physical_attrs 100 100 1000  375    0   0   0>  /* 3,7  MO2   */
+            , <&key_physical_attrs 100 100 1110  475    0   0   0>  /* 3,8  blind */
+            , <&key_physical_attrs 100 100 1215  375    0   0   0>  /* 3,9  LEFT  */
+            , <&key_physical_attrs 100 100 1315  375    0   0   0>  /* 3,10 DOWN  */
+            , <&key_physical_attrs 100 100 1415  375    0   0   0>  /* 3,11 RIGHT */
+            ;
+    };
+};
