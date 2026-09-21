@@ -26,6 +26,7 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <zephyr/dt-bindings/gpio/gpio.h>
+#include "butterfly_air-layouts.dtsi"
 
 / {
     chosen {
@@ -75,19 +76,6 @@
     };
 
     /*
-     * Current ZMK keyboard-shield structure uses a physical-layout node
-     * to associate the kscan and matrix transform. No physical key
-     * coordinates are supplied yet, so this is the basic (non-Studio)
-     * physical layout form.
-     */
-    physical_layout0: physical_layout_0 {
-        compatible = "zmk,physical-layout";
-        display-name = "Default Layout";
-        kscan = <&kscan0>;
-        transform = <&default_transform>;
-    };
-
-    /*
      * Logical matrix: 4 rows x 12 columns = 48 positions.
      *
      * Each physical ROW/COL intersection contributes two logical positions:
@@ -123,4 +111,11 @@
             RC(3,7) RC(7,3)  RC(3,8) RC(8,3)  RC(3,9) RC(9,3)
         >;
     };
+
+    /* Associate the Studio physical layout with this shield's scan and transform. */
+};
+
+&physical_layout0 {
+    kscan = <&kscan0>;
+    transform = <&default_transform>;
 };
