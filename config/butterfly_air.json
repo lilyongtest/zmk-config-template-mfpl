@@ -1,0 +1,67 @@
+{
+  "id": "butterfly_air",
+  "name": "Butterfly Air",
+  "layouts": {
+    "default_transform": {
+      "name": "default_transform",
+      "layout": [
+        { "label": "ESC",   "row": 0, "col": 0,  "x": 0.25,  "y": 1.75 },
+        { "label": "Q",     "row": 0, "col": 1,  "x": 1.25,  "y": 1.60 },
+        { "label": "W",     "row": 0, "col": 2,  "x": 2.25,  "y": 1.45 },
+        { "label": "E",     "row": 0, "col": 3,  "x": 3.25,  "y": 1.45 },
+        { "label": "R",     "row": 0, "col": 4,  "x": 4.25,  "y": 1.60 },
+        { "label": "T",     "row": 0, "col": 5,  "x": 5.25,  "y": 1.75 },
+
+        { "label": "Y",     "row": 0, "col": 6,  "x": 9.00,  "y": 1.75 },
+        { "label": "U",     "row": 0, "col": 7,  "x": 10.00, "y": 1.60 },
+        { "label": "I",     "row": 0, "col": 8,  "x": 11.00, "y": 1.45 },
+        { "label": "O",     "row": 0, "col": 9,  "x": 12.00, "y": 1.45 },
+        { "label": "P",     "row": 0, "col": 10, "x": 13.00, "y": 1.60 },
+        { "label": "BSPC",  "row": 0, "col": 11, "x": 14.00, "y": 1.75 },
+
+        { "label": "TAB",   "row": 1, "col": 0,  "x": 0.25,  "y": 2.75 },
+        { "label": "A",     "row": 1, "col": 1,  "x": 1.25,  "y": 2.60 },
+        { "label": "S",     "row": 1, "col": 2,  "x": 2.25,  "y": 2.45 },
+        { "label": "D",     "row": 1, "col": 3,  "x": 3.25,  "y": 2.45 },
+        { "label": "F",     "row": 1, "col": 4,  "x": 4.25,  "y": 2.60 },
+        { "label": "G",     "row": 1, "col": 5,  "x": 5.25,  "y": 2.75 },
+
+        { "label": "H",     "row": 1, "col": 6,  "x": 9.00,  "y": 2.75 },
+        { "label": "J",     "row": 1, "col": 7,  "x": 10.00, "y": 2.60 },
+        { "label": "K",     "row": 1, "col": 8,  "x": 11.00, "y": 2.45 },
+        { "label": "L",     "row": 1, "col": 9,  "x": 12.00, "y": 2.45 },
+        { "label": ";",     "row": 1, "col": 10, "x": 13.00, "y": 2.60 },
+        { "label": "ENTER", "row": 1, "col": 11, "x": 14.00, "y": 2.75 },
+
+        { "label": "SHIFT", "row": 2, "col": 0,  "x": 0.10,  "y": 3.75 },
+        { "label": "Z",     "row": 2, "col": 1,  "x": 1.10,  "y": 3.75 },
+        { "label": "X",     "row": 2, "col": 2,  "x": 2.10,  "y": 3.60 },
+        { "label": "C",     "row": 2, "col": 3,  "x": 3.10,  "y": 3.45 },
+        { "label": "V",     "row": 2, "col": 4,  "x": 4.10,  "y": 3.60 },
+        { "label": "B",     "row": 2, "col": 5,  "x": 5.10,  "y": 3.75 },
+
+        { "label": "N",     "row": 2, "col": 6,  "x": 9.15,  "y": 3.75 },
+        { "label": "M",     "row": 2, "col": 7,  "x": 10.15, "y": 3.60 },
+        { "label": ",",     "row": 2, "col": 8,  "x": 11.15, "y": 3.45 },
+        { "label": ".",     "row": 2, "col": 9,  "x": 12.15, "y": 3.60 },
+        { "label": "UP",    "row": 2, "col": 10, "x": 13.15, "y": 3.75 },
+        { "label": "DEL",   "row": 2, "col": 11, "x": 14.15, "y": 3.75 },
+
+        { "label": "CTRL",  "row": 3, "col": 0,  "x": 0.10,  "y": 4.75 },
+        { "label": "GUI",   "row": 3, "col": 1,  "x": 1.10,  "y": 4.75 },
+        { "label": "ALT",   "row": 3, "col": 2,  "x": 2.05,  "y": 4.75 },
+        { "label": "",      "row": 3, "col": 3,  "x": 3.15,  "y": 4.75 },
+        { "label": "MO3",   "row": 3, "col": 4,  "x": 4.25,  "y": 4.75 },
+        { "label": "SPACE", "row": 3, "col": 5,  "x": 5.25,  "y": 4.75 },
+
+        { "label": "MO1",   "row": 3, "col": 6,  "x": 9.00,  "y": 4.75 },
+        { "label": "MO2",   "row": 3, "col": 7,  "x": 10.00, "y": 4.75 },
+        { "label": "",      "row": 3, "col": 8,  "x": 11.15, "y": 4.75 },
+        { "label": "LEFT",  "row": 3, "col": 9,  "x": 12.15, "y": 4.75 },
+        { "label": "DOWN",  "row": 3, "col": 10, "x": 13.15, "y": 4.75 },
+        { "label": "RIGHT", "row": 3, "col": 11, "x": 14.15, "y": 4.75 }
+      ]
+    }
+  },
+  "sensors": []
+}
