@@ -1,0 +1,9 @@
+file_format: "1"
+id: butterfly_air
+name: Butterfly Air
+type: shield
+url: "https://github.com/lilyongtest"
+requires:
+  - pro_micro
+features:
+  - keys
