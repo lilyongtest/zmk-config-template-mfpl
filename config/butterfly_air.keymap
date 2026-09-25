@@ -25,6 +25,22 @@
 #include <dt-bindings/zmk/outputs.h>
 
 / {
+    macros {
+        ID: ID {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp S &kp T &kp E &kp C &kp N0 &kp N7 &kp N6 &kp N4 &kp>;
+            label = "ID";
+        };
+
+        pass: pass {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp LS(N) &kp O &kp T &kp E &kp S &kp MINUS &kp N8 &kp N2 &kp N2 &kp N1>;
+            label = "PASS";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -43,7 +59,7 @@
             bindings = <
 &kp F2    &kp F4  &trans  &trans  &trans  &trans  &trans     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans  &trans  &kp MINUS
 &kp EXCL  &kp AT  &trans  &trans  &trans  &trans  &trans     &trans                &trans                 &trans  &trans  &trans
-&trans    &trans  &trans  &trans  &trans  &trans  &kp MINUS  &kp QMARK             &kp SLASH              &trans  &trans  &trans
+&trans    &trans  &trans  &trans  &trans  &trans  &kp MINUS  &kp QMARK             &ID                    &pass   &trans  &trans
 &trans    &trans  &trans  &trans  &trans  &trans  &trans     &trans                &trans                 &trans  &trans  &trans
             >;
         };
