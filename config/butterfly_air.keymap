@@ -39,6 +39,13 @@
             bindings = <&none &kp LS(N) &kp O &kp T &kp E &kp S &kp MINUS &kp N8 &kp N2 &kp N2 &kp N1>;
             label = "PASS";
         };
+
+        atto: atto {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp AT>;
+            label = "ATTO";
+        };
     };
 
     keymap {
@@ -58,7 +65,7 @@
             display-name = "FuncSym";
             bindings = <
 &kp F2    &kp F4  &trans  &trans  &trans  &trans  &trans     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans  &trans  &kp MINUS
-&kp EXCL  &kp AT  &trans  &trans  &trans  &trans  &trans     &trans                &trans                 &trans  &trans  &trans
+&kp EXCL  &atto   &trans  &trans  &trans  &trans  &trans     &trans                &trans                 &trans  &trans  &trans
 &trans    &trans  &trans  &trans  &trans  &trans  &kp MINUS  &kp QMARK             &ID                    &pass   &trans  &trans
 &trans    &trans  &trans  &trans  &trans  &trans  &trans     &trans                &trans                 &trans  &trans  &trans
             >;
