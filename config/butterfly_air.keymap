@@ -29,7 +29,7 @@
         ID: ID {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&none &kp S &kp T &kp E &kp C &kp N0 &kp N7 &kp N6 &kp N4 &kp>;
+            bindings = <&none &kp S &kp T &kp E &kp C &kp N0 &kp N7 &kp N6 &kp N4>;
             label = "ID";
         };
 
