@@ -3,8 +3,8 @@ manifest:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
 
-    - name: geeksville
-      url-base: https://github.com/geeksville
+    - name: lilyongtest
+      url-base: https://github.com/lilyongtest
 
   projects:
     - name: zmk
@@ -13,7 +13,7 @@ manifest:
       import: app/west.yml
 
     - name: zmk_driver_azoteq
-      remote: geeksville
+      remote: lilyongtest
       revision: master
 
   self:
