@@ -187,7 +187,9 @@
         scroll;
         two-finger-tap;
         single-tap;
-        press-and-hold;
+        /* まずこれだけOFF */
+         /* press-and-hold; */
+
 
         switch-xy;
         invert-scroll-y;
