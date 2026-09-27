@@ -180,7 +180,7 @@
         enable-power-management;
 
         report-rate-lp2 = <640>;
-        sensitivity = <90>;
+        sensitivity = <70>;
         scroll-sensitivity = <20>;
         filter-settings = <0x0B>;
 
@@ -188,7 +188,7 @@
         /* 一時的に無効化 */
          single-tap;
          two-finger-tap;
-        /* press-and-hold; */
+          press-and-hold;
 
         switch-xy;
         invert-scroll-y;
