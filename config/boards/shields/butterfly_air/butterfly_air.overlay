@@ -180,8 +180,8 @@
         enable-power-management;
 
         report-rate-lp2 = <640>;
-        sensitivity = <100>;
-        scroll-sensitivity = <100>;
+        sensitivity = <60>;
+        scroll-sensitivity = <40>;
         filter-settings = <0x0B>;
 
         scroll;
