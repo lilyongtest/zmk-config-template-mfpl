@@ -135,6 +135,7 @@
     trackpad_listener: trackpad_listener {
         compatible = "zmk,input-listener";
         device = <&trackpad>;
+        input-processors = <&zip_scroll_scaler 4 1>;
     };
 };
 
@@ -181,7 +182,7 @@
 
         report-rate-lp2 = <640>;
         sensitivity = <70>;
-        scroll-sensitivity = <20>;
+        scroll-sensitivity = <40>;
         filter-settings = <0x0B>;
 
         scroll;
