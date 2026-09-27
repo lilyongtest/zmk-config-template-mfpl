@@ -186,8 +186,8 @@
 
         scroll;
         /* 一時的に無効化 */
-        /* single-tap; */
-        /* two-finger-tap; */
+         single-tap;
+         two-finger-tap;
         /* press-and-hold; */
 
         switch-xy;
