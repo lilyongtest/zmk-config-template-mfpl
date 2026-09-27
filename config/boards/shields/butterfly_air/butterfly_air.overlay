@@ -185,11 +185,10 @@
         filter-settings = <0x0B>;
 
         scroll;
-        two-finger-tap;
+        /* 一時的に無効化 */
         /* single-tap; */
-        /* まずこれだけOFF */
-         /* press-and-hold; */
-
+        /* two-finger-tap; */
+        /* press-and-hold; */
 
         switch-xy;
         invert-scroll-y;
